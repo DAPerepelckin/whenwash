@@ -1,7 +1,6 @@
 <resources>
 
 
-
     <string name="temperature">Temperature</string>
     <string name="condition">Condition</string>
     <string name="location">Location</string>
@@ -49,6 +48,7 @@
         <item>C</item>
         <item>F</item>
     </string-array>
+    <string name="title_activity_maps1">Map</string>
 
 
 </resources>

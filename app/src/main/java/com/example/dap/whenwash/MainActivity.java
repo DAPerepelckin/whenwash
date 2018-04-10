@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import rue25.maps.MapsActivity;
+import rue25.maps.MapsActivity1;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener
@@ -96,7 +97,8 @@ public class MainActivity extends AppCompatActivity
             Intent intent1 = new Intent(this, pogoga.class );
             startActivity(intent1);
         } else if (id == R.id.nav_slideshow) {
-
+            Intent intent = new Intent(this, MapsActivity1.class);
+            startActivity(intent);
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {

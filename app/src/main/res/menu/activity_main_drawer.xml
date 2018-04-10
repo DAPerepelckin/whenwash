@@ -3,18 +3,19 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/moiki"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Мойки поблизости" />
-        <item
             android:id="@+id/pogoda"
             android:icon="@drawable/ic_menu_gallery"
             android:title="Погода" />
         <item
+            android:id="@+id/moiki"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Автомойки" />
+
+        <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow"
-            android:visible="false" />
+            android:title="Автосервисы"
+            android:visible="true" />
         <item
             android:id="@+id/nav_manage"
             android:icon="@drawable/ic_menu_manage"
