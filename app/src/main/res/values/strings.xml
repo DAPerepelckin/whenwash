@@ -1,0 +1,54 @@
+<resources>
+
+
+
+    <string name="temperature">Temperature</string>
+    <string name="condition">Condition</string>
+    <string name="location">Location</string>
+    <string name="powered_by_yahoo">powered by Yahoo!</string>
+    <string name="condition_icon">Condition Icon</string>
+    <string name="loading">Loading&#8230;</string>
+    <string name="temperature_output">%1$d&#176;%2$s</string>
+    <string name="update_location">Update Location</string>
+    <string name="settings">Settings</string>
+    <string name="cache_exception">No Cached Weather Data</string>
+    <string name="location_permission_needed">Device location is needed for Weather GeoLocation</string>
+    <string name="disable_geolocation">Change Settings</string>
+    <string name="day">Day</string>
+    <string name="high">High</string>
+    <string name="low">Low</string>
+
+    <string name="app_name">WhenWash</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_maps">Map</string>
+
+    <string name="pref_geolocation_enabled">geolocation_enabled</string>
+    <string name="pref_manual_location">manual_location</string>
+    <string name="pref_cached_location">cached_location</string>
+    <string name="pref_temperature_unit">temperature_unit</string>
+    <string name="pref_needs_setup">needs_setup</string>
+    <string name="pref_default_unit">C</string>
+
+    <string name="pref_header_general">General</string>
+    <string name="pref_title_enable_geolocation">Enable GeoLocation</string>
+    <string name="pref_description_enable_geolocation">Automatically obtain weather information based on my current location</string>
+
+    <string name="pref_title_manual_location">Manual Location</string>
+    <string name="pref_default_location">Austin, TX</string>
+
+    <string name="pref_title_temperature_unit">Temperature Unit</string>
+    <string-array name="pref_temperature_unit_titles">
+        <item>&#176;C</item>
+        <item>&#176;F</item>
+    </string-array>
+    <string-array name="pref_temperature_unit_values">
+        <item>C</item>
+        <item>F</item>
+    </string-array>
+
+
+</resources>
