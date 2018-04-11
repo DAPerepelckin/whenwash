@@ -5,16 +5,16 @@
         <item
             android:id="@+id/pogoda"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Погода" />
+            android:title="@string/Weather" />
         <item
             android:id="@+id/moiki"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Автомойки" />
+            android:title="@string/Carwashes" />
 
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Автосервисы"
+            android:title="@string/CarService"
             android:visible="true" />
         <item
             android:id="@+id/nav_manage"

@@ -2,10 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:phantomweather="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/currentLocation"
-        android:icon="@drawable/icon_location"
+        android:icon="@drawable/reset"
         android:title="@string/update_location"
-        phantomweather:showAsAction="always"
-        />
+        phantomweather:showAsAction="always" />
     <item
         android:id="@+id/settings"
         android:title="@string/settings" />

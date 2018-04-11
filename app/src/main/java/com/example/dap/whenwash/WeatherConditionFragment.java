@@ -43,13 +43,13 @@ public class WeatherConditionFragment extends Fragment {
         weatherIconImageView.setImageResource(weatherIconImageResource);
         String day =forecast.getDay().toString();
 
-        if (day.equalsIgnoreCase("Wed".toString())){day="Ср".toString();}
-        if (day.equalsIgnoreCase("Thu".toString())){day="Чт".toString();}
-        if (day.equalsIgnoreCase("Fri".toString())){day="Пт".toString();}
-        if (day.equalsIgnoreCase("Sat".toString())){day="Сб".toString();}
-        if (day.equalsIgnoreCase("Sun".toString())){day="Вс".toString();}
-        if (day.equalsIgnoreCase("Mon".toString())){day="Пн".toString();}
-        if (day.equalsIgnoreCase("Tue".toString())){day="Вт".toString();}
+        if (day.equalsIgnoreCase("Wed".toString())){day=getString(R.string.WensdayShort).toString();}
+        if (day.equalsIgnoreCase("Thu".toString())){day=getString(R.string.ThursdayShort).toString();}
+        if (day.equalsIgnoreCase("Fri".toString())){day=getString(R.string.FridayShort).toString();}
+        if (day.equalsIgnoreCase("Sat".toString())){day=getString(R.string.SaturdayShort).toString();}
+        if (day.equalsIgnoreCase("Sun".toString())){day=getString(R.string.SundayShort).toString();}
+        if (day.equalsIgnoreCase("Mon".toString())){day=getString(R.string.MondayShort).toString();}
+        if (day.equalsIgnoreCase("Tue".toString())){day=getString(R.string.TuesdayShort).toString();}
         dayLabelTextView.setText(day);
         highTemperatureTextView.setText(getString(R.string.temperature_output, forecast.getHighTemperature(), units.getTemperature()));
         lowTemperatureTextView.setText(getString(R.string.temperature_output, forecast.getLowTemperature(), units.getTemperature()));

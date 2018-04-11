@@ -2,12 +2,12 @@
 
 
     <string name="temperature">Temperature</string>
-    <string name="condition">Condition</string>
-    <string name="location">Location</string>
-    <string name="powered_by_yahoo">powered by Yahoo!</string>
-    <string name="condition_icon">Condition Icon</string>
-    <string name="loading">Loading&#8230;</string>
-    <string name="temperature_output">%1$d&#176;%2$s</string>
+    <string name="condition" translatable="false">Condition</string>
+    <string name="location" translatable="false">Location</string>
+    <string name="powered_by_yahoo" translatable="false">powered by Yahoo!</string>
+    <string name="condition_icon" translatable="false">Condition Icon</string>
+    <string name="loading" translatable="false">Loading&#8230;</string>
+    <string name="temperature_output" translatable="false">%1$d&#176;%2$s</string>
     <string name="update_location">Update Location</string>
     <string name="settings">Settings</string>
     <string name="cache_exception">No Cached Weather Data</string>
@@ -17,10 +17,24 @@
     <string name="high">High</string>
     <string name="low">Low</string>
 
+    <!-- То что написано самим -->
+
     <string name="app_name">WhenWash</string>
+
+    <!-- То что написано самим -->
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="Weather">Weather</string>
+    <string name="Carwashes">Carwashes</string>
+    <string name="CarService">Car services</string>
+    <string name="MondayShort">Mon</string>
+    <string name="TuesdayShort">Tue</string>
+    <string name="WensdayShort">Wed</string>
+    <string name="ThursdayShort">Thu</string>
+    <string name="FridayShort">Fri</string>
+    <string name="SaturdayShort">Sat</string>
+    <string name="SundayShort">Sun</string>
 
     <string name="action_settings">Settings</string>
     <string name="title_activity_maps">Map</string>

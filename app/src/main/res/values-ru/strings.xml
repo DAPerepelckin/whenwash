@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WhenWash</string>
+    <string name="temperature">Температура</string>
+    <string name="day">День</string>
+    <string name="action_settings">Настройки</string>
+    <string name="title_activity_maps">Карта</string>
+    <string name="title_activity_maps1">Карта</string>
+    <string name="pref_title_temperature_unit">"Единица измерения "</string>
+    <string name="Weather">Погода</string>
+    <string name="Carwashes">Автомойки</string>
+    <string name="CarService">Автосервисы</string>
+    <string name="settings">Настройки</string>
+    <string name="MondayShort">Пн</string>
+    <string name="WensdayShort">Ср</string>
+    <string name="ThursdayShort">Чт</string>
+    <string name="FridayShort">Пт</string>
+    <string name="SaturdayShort">Сб</string>
+    <string name="SundayShort">Вс</string>
+    <string name="TuesdayShort">Вт</string>
+</resources>
