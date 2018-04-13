@@ -6,112 +6,149 @@
     android:layout_height="match_parent"
     >
 
-    <android.support.v4.widget.NestedScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior">
+        android:layout_margin="0dp"
+        android:layout_marginBottom="0dp"
+        android:orientation="vertical"
+        android:paddingBottom="0dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="16dp"
+        tools:context=".pogoga">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingBottom="@dimen/activity_vertical_margin"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
-            android:paddingTop="@dimen/activity_vertical_margin"
-            tools:context=".pogoga">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:clipToPadding="false"
+                android:gravity="bottom|right"
+                android:orientation="vertical"
+                android:paddingLeft="16dp">
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/weatherIconImageView"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="bottom"
+                    android:text="@string/temperature"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="36sp"
+                    android:textStyle="bold"
+                    android:typeface="serif" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textView1"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="bottom"
+                    android:text="@string/condition"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textView2"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="bottom|left"
+                    android:text="@string/location"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
 
             <ImageView
                 android:id="@+id/weatherIconImageView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_centerHorizontal="true"
+                android:layout_weight="1"
                 android:contentDescription="@string/condition_icon"
                 android:src="@drawable/icon_na" />
 
-            <TextView
-                android:id="@+id/textView1"
-                android:layout_width="wrap_content"
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/forecastContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/imageView"
+            android:layout_below="@+id/textView3"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:padding="0dp">
+
+            <fragment
+                android:id="@+id/forecast_0"
+                android:name="com.example.dap.whenwash.WeatherConditionFragment"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/weatherIconImageView"
-                android:layout_centerHorizontal="true"
-                android:text="@string/temperature"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textStyle="bold"
-                android:typeface="serif" />
+                android:layout_weight="1"
+                tools:layout="@layout/fragment_weather_condition" />
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
+            <fragment
+                android:id="@+id/forecast_1"
+                android:name="com.example.dap.whenwash.WeatherConditionFragment"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/textView1"
-                android:layout_centerHorizontal="true"
-                android:text="@string/condition"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
+                android:layout_weight="1"
+                tools:layout="@layout/fragment_weather_condition" />
 
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
+            <fragment
+                android:id="@+id/forecast_2"
+                android:name="com.example.dap.whenwash.WeatherConditionFragment"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/textView2"
-                android:layout_centerHorizontal="true"
-                android:text="@string/location"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textStyle="bold" />
+                android:layout_weight="1"
+                tools:layout="@layout/fragment_weather_condition" />
+
+            <fragment
+                android:id="@+id/forecast_3"
+                android:name="com.example.dap.whenwash.WeatherConditionFragment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                tools:layout="@layout/fragment_weather_condition" />
+
+            <fragment
+                android:id="@+id/forecast_4"
+                android:name="com.example.dap.whenwash.WeatherConditionFragment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                tools:layout="@layout/fragment_weather_condition" />
 
 
-            <LinearLayout
-                android:id="@+id/forecastContainer"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_above="@+id/imageView"
-                android:layout_below="@+id/textView3"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="34dp"
-                android:baselineAligned="false"
-                android:orientation="horizontal">
+        </LinearLayout>
 
-                <fragment
-                    android:id="@+id/forecast_0"
-                    android:name="com.example.dap.whenwash.WeatherConditionFragment"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    tools:layout="@layout/fragment_weather_condition" />
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/textView2"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="16dp"
+            android:layout_weight="1"
+            android:gravity="bottom|center"
+            android:text="@string/powered_by_yahoo"
+            android:textAlignment="center" />
 
-                <fragment
-                    android:id="@+id/forecast_1"
-                    android:name="com.example.dap.whenwash.WeatherConditionFragment"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    tools:layout="@layout/fragment_weather_condition" />
-
-                <fragment
-                    android:id="@+id/forecast_2"
-                    android:name="com.example.dap.whenwash.WeatherConditionFragment"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    tools:layout="@layout/fragment_weather_condition" />
-
-                <fragment
-                    android:id="@+id/forecast_3"
-                    android:name="com.example.dap.whenwash.WeatherConditionFragment"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    tools:layout="@layout/fragment_weather_condition" />
-
-                <fragment
-                    android:id="@+id/forecast_4"
-                    android:name="com.example.dap.whenwash.WeatherConditionFragment"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    tools:layout="@layout/fragment_weather_condition" />
-            </LinearLayout>
-
-        </RelativeLayout>
-    </android.support.v4.widget.NestedScrollView>
+    </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>

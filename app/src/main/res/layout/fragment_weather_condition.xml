@@ -4,30 +4,29 @@
 xmlns:app="http://schemas.android.com/apk/res-auto"
 android:layout_width="match_parent"
 android:layout_height="match_parent">
-<ImageView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    app:srcCompat="@drawable/icon_na"
-    android:layout_alignParentTop="true"
-    android:layout_centerHorizontal="true"
-    android:layout_marginTop="10dp"
-    android:id="@+id/weatherIconImageView"
-    android:contentDescription="@string/condition_icon"
-    android:adjustViewBounds="true" />
 
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:textAppearance="?android:attr/textAppearanceMedium"
-    android:text="@string/day"
-    android:id="@+id/dayTextView"
-    android:layout_below="@+id/weatherIconImageView"
-    android:layout_centerHorizontal="true"
-    android:textStyle="bold"
-    android:typeface="serif"
-    android:textAllCaps="true"
-    android:fontFamily="sans-serif-condensed"
-    android:layout_marginTop="10dp" />
+    <ImageView
+        android:id="@+id/weatherIconImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/condition_icon"
+        app:srcCompat="@drawable/icon_na" />
+
+    <TextView
+        android:id="@+id/dayTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/weatherIconImageView"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/day"
+        android:textAllCaps="true"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="bold"
+        android:typeface="serif" />
 
 <TextView
     android:layout_width="wrap_content"
