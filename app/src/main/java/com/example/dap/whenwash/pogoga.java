@@ -12,10 +12,15 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.preference.PreferenceManager;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -31,6 +36,9 @@ import com.example.dap.whenwash.data.Units;
 import com.example.dap.whenwash.services.GoogleMapsGeocodingService;
 import com.example.dap.whenwash.services.WeService;
 import com.example.dap.whenwash.services.WeatherCacheService;
+
+import rue25.maps.MapsActivity;
+import rue25.maps.MapsActivity1;
 
 public class pogoga extends AppCompatActivity implements WeatherServiceListener, GeocodingServiceListener, LocationListener {
 
@@ -55,7 +63,8 @@ public class pogoga extends AppCompatActivity implements WeatherServiceListener,
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pogoga);
-
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         weatherIconImageView = (ImageView) findViewById(R.id.weatherIconImageView);
         temperatureTextView = (TextView) findViewById(R.id.textView1);
         conditionTextView = (TextView) findViewById(R.id.textView2);
@@ -75,6 +84,8 @@ public class pogoga extends AppCompatActivity implements WeatherServiceListener,
 
 
     }
+
+
 
     @Override
     protected void onStart() {
@@ -163,16 +174,30 @@ public class pogoga extends AppCompatActivity implements WeatherServiceListener,
         Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);
     }
+    private void reload()
+    {
+        Intent intent = getIntent();
+        overridePendingTransition(0, 0);//4
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);//5
+        finish();//6
+        overridePendingTransition(0, 0);//7
+        startActivity(intent);//8
+    }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.currentLocation:
                 //loadingDialog.show();
-                getWeatherFromCurrentLocation();
+               // getWeatherFromCurrentLocation();
+                reload();
                 return true;
             case R.id.settings:
                 startSettingsActivity();
+                return true;
+            case android.R.id.home:
+                finish();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -217,12 +242,12 @@ public class pogoga extends AppCompatActivity implements WeatherServiceListener,
         // display error if this is the second failure
         if (weatherServicesHasFailed) {
             //loadingDialog.hide();
-            Toast.makeText(this, exception.getMessage(), Toast.LENGTH_LONG).show();
+           // Toast.makeText(this, exception.getMessage(), Toast.LENGTH_LONG).show();
        } else {
             // error doing reverse geocoding, load weather data from cache
             weatherServicesHasFailed = true;
             // OPTIONAL: let the user know an error has occurred then fallback to the cached data
-            Toast.makeText(this, exception.getMessage(), Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, exception.getMessage(), Toast.LENGTH_SHORT).show();
 
             cacheService.load(this);
         }

@@ -51,14 +51,19 @@
             android:screenOrientation="locked" />
         <activity
             android:name=".SettingsActivity"
-            android:screenOrientation="locked" />
+            android:screenOrientation="locked"
+            android:theme="@style/Theme.AppCompat.Light.Dialog.MinWidth"/>
         <activity
             android:name="rue25.maps.MapsActivity1"
-            android:label="@string/title_activity_maps1" />
+            android:label="@string/title_activity_maps1"
+            android:screenOrientation="locked"/>
         <activity
             android:name=".services.Profile"
             android:label="@string/title_activity_profile"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-    </application>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="locked"></activity>
+
+            />
+        </application>
 
 </manifest>

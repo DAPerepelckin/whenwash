@@ -1,5 +1,6 @@
 package com.example.dap.whenwash;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
@@ -56,15 +57,18 @@ public class SettingsActivity extends PreferenceActivity {
     @Override
     public void setContentView(View view, ViewGroup.LayoutParams params) {
         getDelegate().setContentView(view, params);
+
     }
     @Override
     public void addContentView(View view, ViewGroup.LayoutParams params) {
         getDelegate().addContentView(view, params);
+
     }
     @Override
     protected void onPostResume() {
         super.onPostResume();
         getDelegate().onPostResume();
+
     }
     @Override
     protected void onTitleChanged(CharSequence title, int color) {
@@ -75,6 +79,7 @@ public class SettingsActivity extends PreferenceActivity {
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         getDelegate().onConfigurationChanged(newConfig);
+
     }
     @Override
     protected void onStop() {
