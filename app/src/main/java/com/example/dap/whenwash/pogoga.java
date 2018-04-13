@@ -133,7 +133,7 @@ public class pogoga extends AppCompatActivity implements WeatherServiceListener,
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         if (requestCode == pogoga.GET_WEATHER_FROM_CURRENT_LOCATION) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                getWeatherFromCurrentLocation();
+                getWeatherFromCurrentLocation() ;
             } else {
                 loadingDialog.hide();
 
