@@ -54,7 +54,11 @@
             android:screenOrientation="locked" />
         <activity
             android:name="rue25.maps.MapsActivity1"
-            android:label="@string/title_activity_maps1"></activity>
+            android:label="@string/title_activity_maps1" />
+        <activity
+            android:name=".services.Profile"
+            android:label="@string/title_activity_profile"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
