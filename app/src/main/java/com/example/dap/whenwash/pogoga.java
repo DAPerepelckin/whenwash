@@ -80,11 +80,11 @@ public class pogoga extends AppCompatActivity implements WeatherServiceListener,
     protected void onStart() {
         super.onStart();
 
-        loadingDialog = new ProgressDialog(this);
+        //loadingDialog = new ProgressDialog(this);
        // loadingDialog.setMessage(getString(R.string.loading));
-        loadingDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        loadingDialog.setCancelable(false);
-        loadingDialog.show();
+        //loadingDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        //loadingDialog.setCancelable(false);
+        //loadingDialog.show();
 
         String location = null;
 
@@ -135,7 +135,7 @@ public class pogoga extends AppCompatActivity implements WeatherServiceListener,
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 getWeatherFromCurrentLocation() ;
             } else {
-                loadingDialog.hide();
+                //loadingDialog.hide();
 
                 AlertDialog messageDialog = new AlertDialog.Builder(this)
                         .setMessage(getString(R.string.location_permission_needed))
@@ -168,7 +168,7 @@ public class pogoga extends AppCompatActivity implements WeatherServiceListener,
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.currentLocation:
-                loadingDialog.show();
+                //loadingDialog.show();
                 getWeatherFromCurrentLocation();
                 return true;
             case R.id.settings:
@@ -181,7 +181,7 @@ public class pogoga extends AppCompatActivity implements WeatherServiceListener,
 
     @Override
     public void serviceSuccess(Channel channel) {
-        loadingDialog.hide();
+        //loadingDialog.hide();
 
         Condition condition = channel.getItem().getCondition();
         Units units = channel.getUnits();
@@ -216,9 +216,9 @@ public class pogoga extends AppCompatActivity implements WeatherServiceListener,
     public void serviceFailure(Exception exception) {
         // display error if this is the second failure
         if (weatherServicesHasFailed) {
-            loadingDialog.hide();
+            //loadingDialog.hide();
             Toast.makeText(this, exception.getMessage(), Toast.LENGTH_LONG).show();
-        } else {
+       } else {
             // error doing reverse geocoding, load weather data from cache
             weatherServicesHasFailed = true;
             // OPTIONAL: let the user know an error has occurred then fallback to the cached data
