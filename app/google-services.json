@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "533673035551-mtpc0m5cd6hp52rpjekonikm6t469i72.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.dap.whenwash",
+            "certificate_hash": "d73a7d9d1ea7e377ab84b268bddf3568ce3eb3f9"
+          }
+        },
+        {
           "client_id": "533673035551-n5q9gkqd5lsuqqdgt7bprk2o40kk449f.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
