@@ -40,7 +40,6 @@
                     android:layout_below="@+id/weatherIconImageView"
                     android:layout_centerHorizontal="true"
                     android:gravity="bottom"
-                    android:text="@string/temperature"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textSize="36sp"
                     android:textStyle="bold"
@@ -53,7 +52,6 @@
                     android:layout_below="@+id/textView1"
                     android:layout_centerHorizontal="true"
                     android:gravity="bottom"
-                    android:text="@string/condition"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textSize="24sp" />
 
@@ -64,7 +62,6 @@
                     android:layout_below="@+id/textView2"
                     android:layout_centerHorizontal="true"
                     android:gravity="bottom|left"
-                    android:text="@string/location"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textStyle="bold" />
 

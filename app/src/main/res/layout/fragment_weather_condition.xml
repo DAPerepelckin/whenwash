@@ -22,29 +22,26 @@ android:layout_height="match_parent">
         android:layout_below="@+id/weatherIconImageView"
         android:layout_centerHorizontal="true"
         android:fontFamily="sans-serif-condensed"
-        android:text="@string/day"
         android:textAllCaps="true"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textStyle="bold"
         android:typeface="serif" />
 
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:textAppearance="?android:attr/textAppearanceSmall"
-    android:text="@string/high"
-    android:id="@+id/highTemperatureTextView"
-    android:layout_below="@+id/dayTextView"
-    android:layout_centerHorizontal="true"
-    android:paddingTop="5dp" />
+    <TextView
+        android:id="@+id/highTemperatureTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dayTextView"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="5dp"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
 
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:textAppearance="?android:attr/textAppearanceSmall"
-    android:text="@string/low"
-    android:id="@+id/lowTemperatureTextView"
-    android:layout_below="@+id/highTemperatureTextView"
-    android:layout_centerHorizontal="true"
-    android:textColor="@color/light_text" />
+    <TextView
+        android:id="@+id/lowTemperatureTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/highTemperatureTextView"
+        android:layout_centerHorizontal="true"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/light_text" />
 </RelativeLayout>

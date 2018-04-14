@@ -20,8 +20,7 @@ import rue25.maps.MapsActivity;
 import rue25.maps.MapsActivity1;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener
-{
+        implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +41,8 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        View headerLayout = navigationView.getHeaderView(0);
+        headerLayout.setOnClickListener(this);
         navigationView.setNavigationItemSelectedListener(this);
     }
 
@@ -99,9 +100,6 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_send) {
 
-        }else if (id == R.id.nav_Profile) {
-            Intent intent = new Intent(this, Profile.class);
-            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -110,4 +108,9 @@ public class MainActivity extends AppCompatActivity
     }
 
 
+    @Override
+    public void onClick(View view) {
+        Intent intent = new Intent(this, profil.class);
+        startActivity(intent);
+    }
 }

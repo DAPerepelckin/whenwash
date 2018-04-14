@@ -21,9 +21,6 @@
             android:icon="@drawable/ic_menu_manage"
             android:title="Tools"
             android:visible="false" />
-        <item
-            android:id="@+id/nav_Profile"
-            android:title="@string/Profile" />
     </group>
 
     <item
