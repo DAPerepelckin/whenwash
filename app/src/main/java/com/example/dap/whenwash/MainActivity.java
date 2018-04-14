@@ -14,6 +14,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.dap.whenwash.services.Profile;
+
 import rue25.maps.MapsActivity;
 import rue25.maps.MapsActivity1;
 
@@ -97,6 +99,9 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_send) {
 
+        }else if (id == R.id.nav_Profile) {
+            Intent intent = new Intent(this, Profile.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

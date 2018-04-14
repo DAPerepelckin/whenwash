@@ -47,6 +47,7 @@ public class Condition implements JSONPopulator {
         lowTemperature = data.optInt("low");
         description = data.optString("text");
         day = data.optString("day");
+
     }
 
     @Override
@@ -66,4 +67,6 @@ public class Condition implements JSONPopulator {
 
         return data;
     }
+
+
 }

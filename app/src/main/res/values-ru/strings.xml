@@ -18,4 +18,5 @@
     <string name="SaturdayShort">Сб</string>
     <string name="SundayShort">Вс</string>
     <string name="TuesdayShort">Вт</string>
+    <string name="Profile">Личный кабинет</string>
 </resources>
