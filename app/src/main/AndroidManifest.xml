@@ -59,7 +59,7 @@
             android:screenOrientation="locked" />
         <activity
             android:name=".profil"
-            android:label="@string/title_activity_profile"
+            android:label="@string/Profile"
             android:screenOrientation="locked" />
 
 
