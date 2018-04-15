@@ -32,22 +32,61 @@ import com.google.firebase.auth.FirebaseUser;
 import rue25.maps.MapsActivity;
 import rue25.maps.MapsActivity1;
 
-import static android.R.attr.password;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
+
+    public static final String APP_PREFERENCES = "auth";
+    public static final String APP_PREFERENCES_EMAIL = "Email";
+    public static final String APP_PREFERENCES_PASSWORD = "Password";
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
-    private String email;
-    private String password1;
+    private String email="";
+    private String password1="";
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        dial();
+        LoadData();
+        if(email.isEmpty()||password1.isEmpty()){
+        dial();}else{
+            mAuth = FirebaseAuth.getInstance();
+
+            mAuthListener = new FirebaseAuth.AuthStateListener() {
+                @Override
+                public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                    FirebaseUser user = firebaseAuth.getCurrentUser();
+                    if (user != null) {
+                        // User is signed in
+
+                    } else {
+
+
+                    }
+                    // ...
+                }
+            };
+
+            mAuth.signInWithEmailAndPassword(email, password1)
+                .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        SaveData();
+                        // If sign in fails, display a message to the user. If sign in succeeds
+                        // the auth state listener will be notified and logic to handle the
+                        // signed in user can be handled in the listener.
+                        if (!task.isSuccessful()) {
+                            dial();
+                            Toast.makeText(MainActivity.this, R.string.auth_failed,
+                                    Toast.LENGTH_SHORT).show();
+                        }
+
+                        // ...
+                    }
+                });}
 
 
 
@@ -68,30 +107,20 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-    /*public void SaveData(View view){
+    public void SaveData(){
         SharedPreferences values = getApplicationContext()
-                .getSharedPreferences(getString(R.string.preference_file_key), 0);
+                .getSharedPreferences(APP_PREFERENCES, 0);
         SharedPreferences.Editor editor = values.edit();
-        editor.putInt("Money", tmoney);
-        editor.putInt("Value", tvalue);
-        editor.putInt("BUcost", BUcost);
-        editor.putInt("SUcost", SUcost);
+        editor.putString(APP_PREFERENCES_EMAIL,email);
+        editor.putString(APP_PREFERENCES_PASSWORD,password1);
         editor.commit();
     }
-    public void LoadData(View view){
-        Context context = getApplicationContext();
+    public void LoadData(){
         SharedPreferences values = getApplicationContext()
-                .getSharedPreferences(getString(R.string.preference_file_key), 0);
-        SharedPreferences.Editor editor = values.edit();
-        tmoney = values.getInt("Money",1000);
-        tvalue = values.getInt("Value",1000);
-        BUcost = values.getInt("BUcost",1000);
-        SUcost = values.getInt("SUcost",1000);
-        typeValue();
-        typeMoney();
-        setBUcost();
-        setSUcost();
-    }*/
+                .getSharedPreferences(APP_PREFERENCES, 0);
+        email = values.getString(APP_PREFERENCES_EMAIL,"");
+        password1 = values.getString(APP_PREFERENCES_PASSWORD,"");
+    }
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -102,6 +131,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
     public void dial(){
+
         LayoutInflater li = LayoutInflater.from(this);
         View promptsView = li.inflate(R.layout.auth, null);
         AlertDialog.Builder mDialogBuilder = new AlertDialog.Builder(this);
@@ -111,6 +141,7 @@ public class MainActivity extends AppCompatActivity
 
 
         mAuth = FirebaseAuth.getInstance();
+
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -128,7 +159,6 @@ public class MainActivity extends AppCompatActivity
 
 
 
-
         mDialogBuilder
                 .setCancelable(false)
                 .setPositiveButton("OK",
@@ -136,7 +166,7 @@ public class MainActivity extends AppCompatActivity
                             public void onClick(final DialogInterface dialog, int id) {
                                 email = userInput.getText().toString();
                                 password1 = userInput1.getText().toString();
-                                if(email.isEmpty()&&password1.isEmpty()) {
+                                if(email.isEmpty()||password1.isEmpty()) {
                                     dialog.dismiss();
                                     dial(); }else {
 
@@ -145,7 +175,7 @@ public class MainActivity extends AppCompatActivity
                                             .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
                                                 @Override
                                                 public void onComplete(@NonNull Task<AuthResult> task) {
-
+                                                    SaveData();
                                                     // If sign in fails, display a message to the user. If sign in succeeds
                                                     // the auth state listener will be notified and logic to handle the
                                                     // signed in user can be handled in the listener.
@@ -166,7 +196,7 @@ public class MainActivity extends AppCompatActivity
                     public void onClick(final DialogInterface dialog, int id) {
                         email = userInput.getText().toString();
                         password1 = userInput1.getText().toString();
-                        if (email.isEmpty() && password1.isEmpty()) {
+                        if (email.isEmpty() || password1.isEmpty()) {
                             dialog.dismiss();
                             dial();
                         } else {
@@ -176,7 +206,7 @@ public class MainActivity extends AppCompatActivity
                                     .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
                                         @Override
                                         public void onComplete(@NonNull Task<AuthResult> task) {
-
+                                            SaveData();
                                             // If sign in fails, display a message to the user. If sign in succeeds
                                             // the auth state listener will be notified and logic to handle the
                                             // signed in user can be handled in the listener.
@@ -192,7 +222,12 @@ public class MainActivity extends AppCompatActivity
                                     });
                         }
                     } }
-        );
+        ).setNegativeButton("Без авторизации",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(final DialogInterface dialog, int id) {
+                        dialog.dismiss();
+                    }
+        });
 
 
 
