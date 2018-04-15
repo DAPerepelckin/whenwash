@@ -23,7 +23,6 @@ import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.dap.whenwash.services.Profile;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -41,7 +40,7 @@ public class MainActivity extends AppCompatActivity
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private String email;
-    private String password;
+    private String password1;
 
 
     @Override
@@ -81,18 +80,18 @@ public class MainActivity extends AppCompatActivity
 
 
 
-
+        email = userInput.getText().toString();
+        password1 = userInput1.getText().toString();
 
         mDialogBuilder
                 .setCancelable(false)
                 .setPositiveButton("OK",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog,int id) {
-                                email = userInput.getText().toString();
-                                password = userInput1.getText().toString();
+                                if(email!=""){if (password1!=""){
 
 
-                                mAuth.signInWithEmailAndPassword(email, password)
+                                mAuth.signInWithEmailAndPassword(email, password1)
                                         .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
                                             @Override
                                             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -110,12 +109,12 @@ public class MainActivity extends AppCompatActivity
                                         });
                             }
 
-                        }).setNeutralButton("Добавить",
+                        }}}).setNeutralButton("Добавить",
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
 
 
-                                    mAuth.createUserWithEmailAndPassword(email, password)
+                                    mAuth.createUserWithEmailAndPassword(email, password1)
                                             .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
                                                 @Override
                                                 public void onComplete(@NonNull Task<AuthResult> task) {
