@@ -111,7 +111,7 @@ public class pogoga extends AppCompatActivity implements WeatherServiceListener,
             location = preferences.getString(getString(R.string.pref_manual_location), null);
         }
 
-        if (location != null) {
+        if (location  != null) {
             weatherService.refreshWeather(location);
         }
     }
