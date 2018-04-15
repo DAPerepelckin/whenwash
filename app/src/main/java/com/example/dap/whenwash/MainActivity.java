@@ -47,96 +47,12 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        dial();
 
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        LayoutInflater li = LayoutInflater.from(this);
-        View promptsView = li.inflate(R.layout.auth, null);
-        AlertDialog.Builder mDialogBuilder = new AlertDialog.Builder(this);
-        mDialogBuilder.setView(promptsView);
-        final EditText userInput = (EditText) promptsView.findViewById(R.id.input_text);
-        final EditText userInput1 = (EditText) promptsView.findViewById(R.id.input_text1);
-
-
-        mAuth = FirebaseAuth.getInstance();
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
-                    // User is signed in
-
-                } else {
-
-
-                }
-                // ...
-            }
-        };
-
-
-
-        email = userInput.getText().toString();
-        password1 = userInput1.getText().toString();
-
-        mDialogBuilder
-                .setCancelable(false)
-                .setPositiveButton("OK",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog,int id) {
-                                if(email!=""){if (password1!=""){
-
-
-                                mAuth.signInWithEmailAndPassword(email, password1)
-                                        .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
-                                            @Override
-                                            public void onComplete(@NonNull Task<AuthResult> task) {
-
-                                                                                                // If sign in fails, display a message to the user. If sign in succeeds
-                                                // the auth state listener will be notified and logic to handle the
-                                                // signed in user can be handled in the listener.
-                                                if (!task.isSuccessful()) {
-                                                    Toast.makeText(MainActivity.this, R.string.auth_failed,
-                                                            Toast.LENGTH_SHORT).show();
-                                                }
-
-                                                // ...
-                                            }
-                                        });
-                            }
-
-                        }}}).setNeutralButton("Добавить",
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-
-
-                                    mAuth.createUserWithEmailAndPassword(email, password1)
-                                            .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
-                                                @Override
-                                                public void onComplete(@NonNull Task<AuthResult> task) {
-
-                                                    // If sign in fails, display a message to the user. If sign in succeeds
-                                                    // the auth state listener will be notified and logic to handle the
-                                                    // signed in user can be handled in the listener.
-                                                    if (!task.isSuccessful()) {
-                                                        Toast.makeText(MainActivity.this, R.string.auth_failed,
-                                                                Toast.LENGTH_SHORT).show();
-                                                    }
-
-                                                    // ...
-                                                }
-                                            });
-                                }
-                            }
-                );
-
-        final AlertDialog alertDialog = mDialogBuilder.create();
-        alertDialog.setCancelable(false);
-        alertDialog.show();
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -185,7 +101,106 @@ public class MainActivity extends AppCompatActivity
             super.onBackPressed();
         }
     }
+    public void dial(){
+        LayoutInflater li = LayoutInflater.from(this);
+        View promptsView = li.inflate(R.layout.auth, null);
+        AlertDialog.Builder mDialogBuilder = new AlertDialog.Builder(this);
+        mDialogBuilder.setView(promptsView);
+        final EditText userInput = (EditText) promptsView.findViewById(R.id.input_text);
+        final EditText userInput1 = (EditText) promptsView.findViewById(R.id.input_text1);
 
+
+        mAuth = FirebaseAuth.getInstance();
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    // User is signed in
+
+                } else {
+
+
+                }
+                // ...
+            }
+        };
+
+
+
+
+        mDialogBuilder
+                .setCancelable(false)
+                .setPositiveButton("OK",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(final DialogInterface dialog, int id) {
+                                email = userInput.getText().toString();
+                                password1 = userInput1.getText().toString();
+                                if(email.isEmpty()&&password1.isEmpty()) {
+                                    dialog.dismiss();
+                                    dial(); }else {
+
+
+                                    mAuth.signInWithEmailAndPassword(email, password1)
+                                            .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<AuthResult> task) {
+
+                                                    // If sign in fails, display a message to the user. If sign in succeeds
+                                                    // the auth state listener will be notified and logic to handle the
+                                                    // signed in user can be handled in the listener.
+                                                    if (!task.isSuccessful()) {
+                                                        dialog.dismiss();
+                                                        dial();
+                                                        Toast.makeText(MainActivity.this, R.string.auth_failed,
+                                                                Toast.LENGTH_SHORT).show();
+                                                    }
+
+                                                    // ...
+                                                }
+                                            });
+
+
+                                } }}).setNeutralButton("Добавить",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(final DialogInterface dialog, int id) {
+                        email = userInput.getText().toString();
+                        password1 = userInput1.getText().toString();
+                        if (email.isEmpty() && password1.isEmpty()) {
+                            dialog.dismiss();
+                            dial();
+                        } else {
+
+
+                            mAuth.createUserWithEmailAndPassword(email, password1)
+                                    .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<AuthResult> task) {
+
+                                            // If sign in fails, display a message to the user. If sign in succeeds
+                                            // the auth state listener will be notified and logic to handle the
+                                            // signed in user can be handled in the listener.
+                                            if (!task.isSuccessful()) {
+                                                dialog.dismiss();
+                                                dial();
+                                                Toast.makeText(MainActivity.this, R.string.auth_failed,
+                                                        Toast.LENGTH_SHORT).show();
+                                            }
+
+                                            // ...
+                                        }
+                                    });
+                        }
+                    } }
+        );
+
+
+
+
+        final AlertDialog alertDialog = mDialogBuilder.create();
+        alertDialog.setCancelable(false);
+        alertDialog.show();
+    }
     @Override
     public void onStart() {
         super.onStart();
