@@ -52,6 +52,22 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         LoadData();
 
+        mAuth = FirebaseAuth.getInstance();
+
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    // User is signed in
+
+                } else {
+
+
+                }
+                // ...
+            }
+        };
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -186,19 +202,7 @@ public class MainActivity extends AppCompatActivity
                                     });
                         }
                     } }
-        ).setNegativeButton("Без авторизации",
-                new DialogInterface.OnClickListener() {
-                    public void onClick(final DialogInterface dialog, int id) {
-                        dialog.dismiss();
-                    }
-        });
-
-
-
-
-        final AlertDialog alertDialog = mDialogBuilder.create();
-        alertDialog.setCancelable(false);
-        alertDialog.show();
+        );
     }
     @Override
     public void onStart() {
@@ -267,8 +271,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onClick(View view) {
-        LoadData();
-        if(email.isEmpty()||password1.isEmpty()){
+            if(email.isEmpty()||password1.isEmpty()){
             dial();}else{
             mAuth = FirebaseAuth.getInstance();
 
