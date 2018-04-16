@@ -118,7 +118,7 @@ public class pogoga extends AppCompatActivity implements WeatherServiceListener,
 
     private void getWeatherFromCurrentLocation() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{
+            ActivityCompat.requestPermissions(this, new  String[]{
                     Manifest.permission.ACCESS_FINE_LOCATION,
             }, GET_WEATHER_FROM_CURRENT_LOCATION);
 
