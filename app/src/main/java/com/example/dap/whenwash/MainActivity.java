@@ -50,43 +50,7 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        LoadData();
-        if(email.isEmpty()||password1.isEmpty()){
-        dial();}else{
-            mAuth = FirebaseAuth.getInstance();
 
-            mAuthListener = new FirebaseAuth.AuthStateListener() {
-                @Override
-                public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                    FirebaseUser user = firebaseAuth.getCurrentUser();
-                    if (user != null) {
-                        // User is signed in
-
-                    } else {
-
-
-                    }
-                    // ...
-                }
-            };
-
-            mAuth.signInWithEmailAndPassword(email, password1)
-                .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        SaveData();
-                        // If sign in fails, display a message to the user. If sign in succeeds
-                        // the auth state listener will be notified and logic to handle the
-                        // signed in user can be handled in the listener.
-                        if (!task.isSuccessful()) {
-                            dial();
-                            Toast.makeText(MainActivity.this, R.string.auth_failed,
-                                    Toast.LENGTH_SHORT).show();
-                        }
-
-                        // ...
-                    }
-                });}
 
 
 
@@ -303,6 +267,43 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onClick(View view) {
+        LoadData();
+        if(email.isEmpty()||password1.isEmpty()){
+            dial();}else{
+            mAuth = FirebaseAuth.getInstance();
+
+            mAuthListener = new FirebaseAuth.AuthStateListener() {
+                @Override
+                public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                    FirebaseUser user = firebaseAuth.getCurrentUser();
+                    if (user != null) {
+                        // User is signed in
+
+                    } else {
+
+
+                    }
+                    // ...
+                }
+            };
+
+            mAuth.signInWithEmailAndPassword(email, password1)
+                    .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            SaveData();
+                            // If sign in fails, display a message to the user. If sign in succeeds
+                            // the auth state listener will be notified and logic to handle the
+                            // signed in user can be handled in the listener.
+                            if (!task.isSuccessful()) {
+                                dial();
+                                Toast.makeText(MainActivity.this, R.string.auth_failed,
+                                        Toast.LENGTH_SHORT).show();
+                            }
+
+                            // ...
+                        }
+                    });}
         Intent intent = new Intent(this, profil.class);
         startActivity(intent);
     }

@@ -1,5 +1,7 @@
 package com.example.dap.whenwash.data;
 
+import com.example.dap.whenwash.R;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -34,6 +36,7 @@ public class Condition implements JSONPopulator {
     public String getDescription() {
         return description;
     }
+
 
     public String getDay() {
         return day;

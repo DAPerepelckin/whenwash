@@ -216,6 +216,9 @@ public class pogoga extends AppCompatActivity implements WeatherServiceListener,
 
         weatherIconImageView.setImageResource(weatherIconImageResource);
         temperatureTextView.setText(getString(R.string.temperature_output, condition.getTemperature(), units.getTemperature()));
+         String description = condition.getDescription();
+        if (description.equalsIgnoreCase("Wed".toString())){description=getString(R.string.WensdayShort).toString();}
+
         conditionTextView.setText(condition.getDescription());
         locationTextView.setText(channel.getLocation());
 
