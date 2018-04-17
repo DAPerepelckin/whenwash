@@ -39,7 +39,7 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
+            android:value="AIzaSyD0I3_UFdDzLf5yFfL1LlVxgUaUg5sP4RE" />
 
         <activity
             android:name="rue25.maps.MapsActivity"
@@ -61,8 +61,6 @@
             android:name=".profil"
             android:label="@string/Profile"
             android:screenOrientation="locked" />
-
-
     </application>
 
 </manifest>

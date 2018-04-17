@@ -21,17 +21,21 @@ android {
 }
 
 dependencies {
-    implementation 'com.google.firebase:firebase-database:11.0.4'
+
+
+    implementation 'com.google.firebase:firebase-auth:11.0.4'
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    compile 'com.google.maps:google-maps-services:0.2.4'
+    compile 'com.google.android.gms:play-services-maps:11.0.4'
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support:design:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.google.android.gms:play-services-maps:11.0.4'
     compile 'com.android.support:support-v4:26.+'
-    compile 'com.google.firebase:firebase-auth:11.0.4'
+    compile 'org.slf4j:slf4j-nop:1.7.25'
+
     testCompile 'junit:junit:4.12'
 }
 
